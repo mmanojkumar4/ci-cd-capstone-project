@@ -30,9 +30,16 @@ pipeline {
 
         stage('Security Scan') {
             steps {
-                bat 'trivy image flask-backend'
-                bat 'trivy image flask-frontend'
-            }
-        }
+        bat '''
+        docker run --rm \
+          -v /var/run/docker.sock:/var/run/docker.sock \
+          aquasec/trivy image flask-backend
+        docker run --rm \
+          -v /var/run/docker.sock:/var/run/docker.sock \
+          aquasec/trivy image flask-frontend
+        '''
+    }
+}
+
     }
 }
