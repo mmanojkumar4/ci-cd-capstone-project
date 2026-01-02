@@ -2,9 +2,7 @@
 FROM python:3.11-slim AS builder
 
 WORKDIR /app
-
 COPY requirements.txt .
-
 RUN pip install --no-cache-dir -r requirements.txt
 
 
@@ -16,23 +14,16 @@ RUN useradd -m appuser
 
 WORKDIR /app
 
-# Copy installed python packages from builder
+# Copy python packages
 COPY --from=builder /usr/local/lib/python3.11 /usr/local/lib/python3.11
 
-# Copy application code
+# Copy app
 COPY app app
 
 USER appuser
 
 EXPOSE 5000
 
-CMD ["python", "app/main.py"]
+# ✅ THIS MUST START FLASK SERVER (NOT TESTS)
 
-
-FROM python:3.11-slim AS test
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY app app
-COPY tests tests
-CMD ["pytest"]
+CMD python app/init_db.py && python app/main.py

@@ -1,36 +1,51 @@
 services:
-  postgres:
+  postgres_db:
     image: postgres:15
-    container_name: flask-postgres
+    container_name: postgres_db
     environment:
       POSTGRES_DB: testdb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
 
   backend:
+    build:
+      context: ./backend
     image: flask-backend
     container_name: flask-backend
     ports:
       - "5000:5000"
     environment:
-      DB_HOST: postgres
+      DB_HOST: postgres_db
       DB_PORT: 5432
       DB_NAME: testdb
       DB_USER: postgres
       DB_PASSWORD: postgres
     depends_on:
-      - postgres
-    restart: always
+      - postgres_db
+    networks:
+      - app-network
+    restart: unless-stopped
 
   frontend:
+    build:
+      context: ./frontend
     image: flask-frontend
     container_name: flask-frontend
     ports:
       - "9090:80"
     depends_on:
       - backend
+    networks:
+      - app-network
+    restart: unless-stopped
 
 volumes:
   postgres_data:
+
+networks:
+  app-network:
+    driver: bridge
