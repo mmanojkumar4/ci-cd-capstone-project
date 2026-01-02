@@ -43,12 +43,13 @@ pipeline {
         }
 
         stage('Deploy to Staging') {
-            steps {
-                bat '''
-                docker-compose down
-                docker-compose up -d --build
-                '''
-            }
-        }
+    steps {
+        bat '''
+        docker-compose -f docker-compose.staging.yml down
+        docker-compose -f docker-compose.staging.yml up -d --build
+        '''
+    }
+}
+
     }
 }
