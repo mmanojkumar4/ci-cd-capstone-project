@@ -10,10 +10,14 @@ pipeline {
         }
 
         stage('Build Backend Image') {
-            steps {
-                bat 'docker build -t flask-backend backend'
-            }
-        }
+    steps {
+        bat '''
+        set DOCKER_BUILDKIT=0
+        docker build --no-cache -t flask-backend backend
+        '''
+    }
+}
+
 
         stage('Run Backend Tests') {
             steps {
