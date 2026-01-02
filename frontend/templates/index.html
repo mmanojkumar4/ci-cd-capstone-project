@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CI/CD Flask App</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+  <meta charset="UTF-8">
+  <title>CI/CD Flask Project</title>
+  <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
-    <h1>CI/CD Demo Application</h1>
+  <div class="container">
+    <h1> CI/CD Flask Project</h1>
+    <p class="subtitle">Docker • Jenkins • CI/CD Pipeline</p>
 
-    <button onclick="checkHealth()">Check Backend Health</button>
+    <div class="card">
+      <h2>Application Health</h2>
+      <p id="status">Checking backend...</p>
+    </div>
 
-    <div id="result"></div>
+    <footer>
+      <p>Deployed via automated CI/CD pipeline</p>
+    </footer>
+  </div>
 
-    <script src="/static/js/app.js"></script>
+  <script src="/static/js/app.js"></script>
 </body>
 </html>

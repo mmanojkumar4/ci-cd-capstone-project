@@ -11,7 +11,7 @@ services:
   backend:
     image: flask-backend
     ports:
-      - "5001:5000"   # 👈 STAGING PORT
+      - "5001:5000"   
     environment:
       DB_HOST: postgres
       DB_PORT: 5432
@@ -24,7 +24,7 @@ services:
   frontend:
     image: flask-frontend
     ports:
-      - "9091:80"     # 👈 STAGING PORT
+      - "9091:80"     
     depends_on:
       - backend
 
