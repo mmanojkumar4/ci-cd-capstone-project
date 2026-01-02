@@ -10,6 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Stage 2: test
 # -------------------------
 FROM base AS test
+ENV TESTING=true
 COPY app app
 COPY tests tests
 CMD ["pytest", "-v"]
