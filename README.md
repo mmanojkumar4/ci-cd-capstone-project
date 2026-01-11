@@ -1,4 +1,3 @@
-![db](screenshots/running.png)
 #  CI/CD Capstone Project
 
 ## 1. Project Overview
@@ -15,7 +14,7 @@ Every code push to GitHub automatically triggers the Jenkins pipeline, which bui
 
 **Build a complete CI/CD system that automatically tests, builds, and deploys a simple web application through staging environments using Docker and Jenkins.**
 
-![CAPSTONE](screenshots/ALL1.png)
+![CAPSTONE](screenshots/ALL1.jpg)
 ---
 
 ## 3. Technology Stack
@@ -64,7 +63,9 @@ Frontend --> Backend --> PostgreSQL
  * Fully automated
  * Webhook-driven
  * No manual pipeline triggers
+
 ![ARCHITECTURE](screenshots/ARCHITECTURE.png)
+
 ---
 
 ## 5. Application Architecture
@@ -93,6 +94,7 @@ Frontend --> Backend --> PostgreSQL
 * Persistent data storage using Docker volumes
 
 ![alt text](screenshots/flask-db-dcoker.png)
+
 ---
 
 ## 6. Project Structure
@@ -249,7 +251,6 @@ Deploy to Staging
 
 ---
 
----
 
 ### Webhook Implementation
 ![CAPSTONE](screenshots/webhook.png)
@@ -302,8 +303,6 @@ Jenkins CI Pipeline
    +--> Trivy Security Scan
 ```
 
----
-
 
 ###  CI Stages
 #### I. Code Checkout
@@ -321,7 +320,6 @@ stage('Checkout') {
 * Ensures Jenkins always works with latest commit
 * Triggered automatically via webhook
 
----
 
 #### II. Backend Image Build
 
@@ -340,7 +338,6 @@ stage('Build Backend Image') {
 
 ![CAPSTONE](screenshots/dockerps.png)
 
----
 
 #### III. Unit Testing Inside Container
 
@@ -359,7 +356,7 @@ stage('Run Backend Tests') {
  Pipeline fails if tests fail
  No “works on my machine” issue
 
----
+
 
 #### IV. Frontend Image Build
 
@@ -420,7 +417,7 @@ Deployment is fully automated for the **staging environment**.
 
 Deployment is handled using **Docker Compose**.
 
----
+
 ##  Continuous Deployment (CD) Flow
 
 
@@ -439,7 +436,7 @@ Staging Deployment Stage
    +--> Verify Application Health
 ```
 
----
+
 
 ###  CD Stages – 
 
@@ -461,7 +458,7 @@ stage('Deploy to Staging') {
  Uses same images tested in CI
  Acts as **staging environment**
 
----
+
 
 
 
@@ -485,7 +482,8 @@ Developer Pushes Code
 * No manual Jenkins build
 * Every push = auto build
 * Implemented using **GitHub Webhook + ngrok**
----
+
+
 ##  Non-Root User (Container Security)
 
 Docker containers run as **root by default**, which is a security risk.
@@ -513,7 +511,7 @@ USER appuser
 * Prevents system-level access
 * Production-grade container security
 
----
+
 
 ##  Multi-Stage Docker Builds (Optimization)
 
@@ -561,7 +559,6 @@ Frontend  --->  Backend  --->  PostgreSQL
   Nginx        Flask          Volume
 ```
 
----
 
 ### Frontend → Backend
 
@@ -575,7 +572,6 @@ Example:
 fetch("http://backend:5000/api/health")
 ```
 ![CAPSTONE](screenshots/db2.png)
----
 
 ### Backend → Database
 
@@ -643,6 +639,8 @@ Expected:
 ```
 http://localhost:9090
 ```
+
+  ![alt text](screenshots/UI.png)
 
 * Confirms full end-to-end flow
 
