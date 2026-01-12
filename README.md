@@ -537,7 +537,7 @@ COPY --from=builder /install /usr/local
 COPY app app
 CMD ["python", "app/main.py"]
 ```
-![CAPSTONE](screenshots/ALL1.png)
+![CAPSTONE](screenshots/images-build.png)
 
 **Result**
 
@@ -663,6 +663,8 @@ Expected Response:
   "database": "CONNECTED"
 }
 ```
+
+![alt text](screenshots/nonroot.png)
 
 ### Frontend
 
@@ -862,8 +864,8 @@ Using Docker Compose, the **entire stack (Frontend + Backend + Database)** can b
 ### Step 1: Pull Application Images from Docker Hub
 
 ```bash
-docker pull <your-dockerhub-username>/flask-backend
-docker pull <your-dockerhub-username>/flask-frontend
+docker pull <mmanojkumar4 >/flask-backend
+docker pull <mmanojkumar4>/flask-frontend
 ```
 
 * Backend and frontend images downloaded
@@ -893,10 +895,10 @@ Replace `build` with `image` for backend and frontend:
 
 ```yaml
 backend:
-  image: <your-dockerhub-username>/flask-backend
+  image: <mmanojkumar4>/flask-backend
 
 frontend:
-  image: <your-dockerhub-username>/flask-frontend
+  image: <mmanojkumar4>/flask-frontend
 ```
 
 PostgreSQL continues to run as a service inside Docker Compose.
