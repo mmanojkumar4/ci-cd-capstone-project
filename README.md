@@ -1,5 +1,5 @@
 #  CI/CD Capstone Project
-
+# TESTING LIVES
 ## 1. Project Overview
 
 This project demonstrates a **complete end-to-end CI/CD pipeline** implemented using **Docker, Docker Compose, Jenkins, and GitHub Webhooks** for a **2-tier containerized web application**.
@@ -93,7 +93,7 @@ Frontend --> Backend --> PostgreSQL
 * PostgreSQL running in a container
 * Persistent data storage using Docker volumes
 
-![alt text](screenshots/flask-db-dcoker.png)
+![alt text](screenshots/flask-db-dcoker.jpeg)
 
 ---
 
