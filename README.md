@@ -1,5 +1,5 @@
 #  CI/CD Capstone Project
-# TESTING LIVES
+
 ## 1. Project Overview
 
 This project demonstrates a **complete end-to-end CI/CD pipeline** implemented using **Docker, Docker Compose, Jenkins, and GitHub Webhooks** for a **2-tier containerized web application**.
@@ -15,6 +15,7 @@ Every code push to GitHub automatically triggers the Jenkins pipeline, which bui
 **Build a complete CI/CD system that automatically tests, builds, and deploys a simple web application through staging environments using Docker and Jenkins.**
 
 ![CAPSTONE](screenshots/ALL1.jpg)
+
 ---
 
 ## 3. Technology Stack
@@ -438,7 +439,7 @@ Staging Deployment Stage
 
 
 
-###  CD Stages – 
+###  CD Stages 
 
 ####  Deploy to Staging (Docker Compose)
 
@@ -457,8 +458,6 @@ stage('Deploy to Staging') {
  Starts fresh containers
  Uses same images tested in CI
  Acts as **staging environment**
-
-
 
 
 
@@ -708,8 +707,9 @@ environment:
 ---
 
 ## 16. Troubleshooting Guide
+
 This section lists common issues encountered during local development, Docker execution, and CI/CD pipeline runs, along with practical solutions.
----
+
 
 ###  I.Containers Not Starting or Exiting Immediately
 
@@ -865,7 +865,7 @@ Using Docker Compose, the **entire stack (Frontend + Backend + Database)** can b
 
 ```bash
 docker pull <mmanojkumar4 >/flask-backend
-docker pull <mmanojkumar4>/flask-frontend
+docker pull <mmanojkumar4 >/flask-frontend
 ```
 
 * Backend and frontend images downloaded
@@ -976,6 +976,6 @@ This capstone project successfully implements a **real-world CI/CD pipeline** us
 
 The integration of **GitHub Webhooks, Jenkins pipelines, Docker multi-stage builds, security scanning, and automated deployments** demonstrates strong practical DevOps knowledge suitable for real production environments and technical interviews.
 
----
+
 
 
